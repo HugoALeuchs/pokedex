@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 
 import styles from "../styles/PokemonCard.module.scss";
 
 function pokemonCard(props) {
+  const [statusCheck, setStatusCheck] = useState([false]);
+
   function setBackgroundColor(pokemonType, opacity) {
     switch (pokemonType) {
       case "normal":
@@ -86,6 +88,62 @@ function pokemonCard(props) {
               }}
             ></div>
             <img src={pokemonsDetail.sprites.front_default}></img>
+            <div className={styles.cardButtons}>
+              <a
+                className={styles.statusButton}
+                style={{
+                  backgroundColor: setBackgroundColor(
+                    pokemonsDetail.types[0].type.name,
+                    1
+                  ),
+                }}
+                onClick={() => setStatusCheck(!statusCheck)}
+              >
+                Status
+              </a>
+              <a
+                className={styles.statusButton}
+                style={{
+                  backgroundColor: setBackgroundColor(
+                    pokemonsDetail.types[0].type.name,
+                    1
+                  ),
+                }}
+                onClick={() => setStatusCheck(!statusCheck)}
+              >
+                Abilities
+              </a>
+              <a
+                className={styles.statusButton}
+                style={{
+                  backgroundColor: setBackgroundColor(
+                    pokemonsDetail.types[0].type.name,
+                    1
+                  ),
+                }}
+                onClick={() => setStatusCheck(!statusCheck)}
+              >
+                Types
+              </a>
+            </div>
+            <div
+              className={styles.status}
+              style={{ display: statusCheck ? "none" : "flex" }}
+            >
+              {pokemonsDetail.stats.map((stat, index) => (
+                <div key={index} className={styles.statusBorder}>
+                  <div
+                    className={styles.statusBar}
+                    style={{
+                      width: stat.base_stat + "%",
+                      backgroundColor: "red",
+                    }}
+                  >
+                    {stat.stat.name}
+                  </div>
+                </div>
+              ))}
+            </div>
             <p>
               {pokemonsDetail.name.charAt(0).toUpperCase() +
                 pokemonsDetail.name.slice(1)}

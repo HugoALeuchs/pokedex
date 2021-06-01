@@ -53,7 +53,7 @@ export default function Home(props) {
             loadInformationCheck={loadInformationCheck}
             pokemonsDetails={pokemonsDetails}
           ></PokemonCard>
-          <div className={styles.pagination}>
+          <div className={loading ? styles.pagination : styles.paginationOpen}>
             <img onClick={() => {fetchData(previousPageInformation)}} src={ArrowLeft}></img>
             <img onClick={() => {fetchData(nextPageInformation)}} src={ArrowRight}></img>
           </div>
