@@ -78,6 +78,38 @@ function pokemonCard(props) {
       {props.loadInformationCheck == true ? (
         props.pokemonsDetails.map((pokemonsDetail, index) => (
           <div className={styles.card} key={index}>
+            <div className={styles.cardButtons}>
+              <a
+                className={styles.statusButton}
+                style={{
+                  animation: "fadeIn 2s",
+                  backgroundColor: "red",
+                }}
+                onClick={() => setStatusCheck(!statusCheck)}
+              >
+                Status
+              </a>
+              <a
+                className={styles.statusButton}
+                style={{
+                  animation: "fadeIn 3s",
+                  backgroundColor: "green",
+                }}
+                onClick={() => setStatusCheck(!statusCheck)}
+              >
+                Abilities
+              </a>
+              <a
+                className={styles.statusButton}
+                style={{
+                  animation: "fadeIn 4s",
+                  backgroundColor: "blue",
+                }}
+                onClick={() => setStatusCheck(!statusCheck)}
+              >
+                Types
+              </a>
+            </div>
             <div
               className={styles.cardBackground}
               style={{
@@ -88,44 +120,6 @@ function pokemonCard(props) {
               }}
             ></div>
             <img src={pokemonsDetail.sprites.front_default}></img>
-            <div className={styles.cardButtons}>
-              <a
-                className={styles.statusButton}
-                style={{
-                  backgroundColor: setBackgroundColor(
-                    pokemonsDetail.types[0].type.name,
-                    1
-                  ),
-                }}
-                onClick={() => setStatusCheck(!statusCheck)}
-              >
-                Status
-              </a>
-              <a
-                className={styles.statusButton}
-                style={{
-                  backgroundColor: setBackgroundColor(
-                    pokemonsDetail.types[0].type.name,
-                    1
-                  ),
-                }}
-                onClick={() => setStatusCheck(!statusCheck)}
-              >
-                Abilities
-              </a>
-              <a
-                className={styles.statusButton}
-                style={{
-                  backgroundColor: setBackgroundColor(
-                    pokemonsDetail.types[0].type.name,
-                    1
-                  ),
-                }}
-                onClick={() => setStatusCheck(!statusCheck)}
-              >
-                Types
-              </a>
-            </div>
             <div
               className={styles.status}
               style={{ display: statusCheck ? "none" : "flex" }}
