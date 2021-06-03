@@ -117,8 +117,14 @@ function pokemonCard(props) {
           }}
         ></div>
         <img
-          src={props.pokemonsDetail.sprites.other["official-artwork"].front_default}
+          src={
+            props.pokemonsDetail.sprites.other["official-artwork"].front_default
+          }
         ></img>
+        <p className={styles.pokemonName}>
+          {props.pokemonsDetail.name.charAt(0).toUpperCase() +
+            props.pokemonsDetail.name.slice(1)}
+        </p>
         <div
           className={styles.status}
           style={{ display: statusCheck ? "none" : "flex" }}
@@ -128,19 +134,14 @@ function pokemonCard(props) {
               <div
                 className={styles.statusBar}
                 style={{
-                  width: stat.base_stat + "%",
-                  backgroundColor: "red",
+                  width: Math.min(stat.base_stat / 1.1,100)+"%",
                 }}
               >
-                {stat.stat.name}
+              <p className={styles.statusName}>{stat.stat.name}</p>
               </div>
             </div>
           ))}
         </div>
-        <p>
-          {props.pokemonsDetail.name.charAt(0).toUpperCase() +
-            props.pokemonsDetail.name.slice(1)}
-        </p>
       </div>
     </>
   );
