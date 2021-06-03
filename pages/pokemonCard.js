@@ -75,98 +75,73 @@ function pokemonCard(props) {
 
   return (
     <>
-      {props.loadInformationCheck == true ? (
-        props.pokemonsDetails.map((pokemonsDetail, index) => (
-          <div className={styles.card} key={index}>
-            <div className={styles.cardButtons}>
-              <a
-                className={styles.statusButton}
+      <div className={styles.card} key={props.index}>
+        <div className={styles.cardButtons}>
+          <a
+            className={styles.statusButton}
+            style={{
+              backgroundColor: "red",
+              top: "20%",
+            }}
+            onClick={() => setStatusCheck(!statusCheck)}
+          >
+            Status
+          </a>
+          <a
+            className={styles.statusButton}
+            style={{
+              backgroundColor: "green",
+            }}
+            onClick={() => setStatusCheck(!statusCheck)}
+          >
+            Abilities
+          </a>
+          <a
+            className={styles.statusButton}
+            style={{
+              backgroundColor: "blue",
+              bottom: "20%",
+            }}
+            onClick={() => setStatusCheck(!statusCheck)}
+          >
+            Types
+          </a>
+        </div>
+        <div
+          className={styles.cardBackground}
+          style={{
+            backgroundColor: setBackgroundColor(
+              props.pokemonsDetail.types[0].type.name,
+              1
+            ),
+          }}
+        ></div>
+        <img
+          src={props.pokemonsDetail.sprites.other["official-artwork"].front_default}
+        ></img>
+        <div
+          className={styles.status}
+          style={{ display: statusCheck ? "none" : "flex" }}
+        >
+          {props.pokemonsDetail.stats.map((stat, index) => (
+            <div key={index} className={styles.statusBorder}>
+              <div
+                className={styles.statusBar}
                 style={{
-                  animation: "fadeIn 2s",
+                  width: stat.base_stat + "%",
                   backgroundColor: "red",
                 }}
-                onClick={() => setStatusCheck(!statusCheck)}
               >
-                Status
-              </a>
-              <a
-                className={styles.statusButton}
-                style={{
-                  animation: "fadeIn 3s",
-                  backgroundColor: "green",
-                }}
-                onClick={() => setStatusCheck(!statusCheck)}
-              >
-                Abilities
-              </a>
-              <a
-                className={styles.statusButton}
-                style={{
-                  animation: "fadeIn 4s",
-                  backgroundColor: "blue",
-                }}
-                onClick={() => setStatusCheck(!statusCheck)}
-              >
-                Types
-              </a>
+                {stat.stat.name}
+              </div>
             </div>
-            <div
-              className={styles.cardBackground}
-              style={{
-                backgroundColor: setBackgroundColor(
-                  pokemonsDetail.types[0].type.name,
-                  1
-                ),
-              }}
-            ></div>
-            <img src={pokemonsDetail.sprites.front_default}></img>
-            <div
-              className={styles.status}
-              style={{ display: statusCheck ? "none" : "flex" }}
-            >
-              {pokemonsDetail.stats.map((stat, index) => (
-                <div key={index} className={styles.statusBorder}>
-                  <div
-                    className={styles.statusBar}
-                    style={{
-                      width: stat.base_stat + "%",
-                      backgroundColor: "red",
-                    }}
-                  >
-                    {stat.stat.name}
-                  </div>
-                </div>
-              ))}
-            </div>
-            <p>
-              {pokemonsDetail.name.charAt(0).toUpperCase() +
-                pokemonsDetail.name.slice(1)}
-            </p>
-          </div>
-        ))
-      ) : (
-        <div
-          className={styles.loadingTextOpen}
-          style={{ display: props.loading ? "none" : "flex" }}
-        >
-          <div className={styles.initialization}>
-            <span>I</span>
-            <span>N</span>
-            <span>I</span>
-            <span>T</span>
-            <span>I</span>
-            <span>A</span>
-            <span>L</span>
-            <span>I</span>
-            <span>Z</span>
-            <span>A</span>
-            <span>T</span>
-            <span>I</span>
-            <span>O</span>
-            <span>N</span>
-          </div>
+          ))}
         </div>
-      )}
+        <p>
+          {props.pokemonsDetail.name.charAt(0).toUpperCase() +
+            props.pokemonsDetail.name.slice(1)}
+        </p>
+      </div>
     </>
   );
 }
