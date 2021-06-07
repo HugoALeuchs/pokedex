@@ -1,9 +1,14 @@
 import React, { useState } from "react";
+import Status from "./status.js";
+import Abilities from "./abilities.js";
+import Types from "./types.js";
 
 import styles from "../styles/PokemonCard.module.scss";
 
 function pokemonCard(props) {
   const [statusCheck, setStatusCheck] = useState([false]);
+  const [abilitiesCheck, setAbilitiesCheck] = useState([false]);
+  const [typesCheck, setTypesCheck] = useState([false]);
 
   function setBackgroundColor(pokemonType, opacity) {
     switch (pokemonType) {
@@ -92,7 +97,7 @@ function pokemonCard(props) {
             style={{
               backgroundColor: "green",
             }}
-            onClick={() => setStatusCheck(!statusCheck)}
+            onClick={() => setAbilitiesCheck(!abilitiesCheck)}
           >
             Abilities
           </a>
@@ -102,7 +107,7 @@ function pokemonCard(props) {
               backgroundColor: "blue",
               bottom: "20%",
             }}
-            onClick={() => setStatusCheck(!statusCheck)}
+            onClick={() => setTypesCheck(!typesCheck)}
           >
             Types
           </a>
@@ -125,23 +130,9 @@ function pokemonCard(props) {
           {props.pokemonsDetail.name.charAt(0).toUpperCase() +
             props.pokemonsDetail.name.slice(1)}
         </p>
-        <div
-          className={styles.status}
-          style={{ display: statusCheck ? "none" : "flex" }}
-        >
-          {props.pokemonsDetail.stats.map((stat, index) => (
-            <div key={index} className={styles.statusBorder}>
-              <div
-                className={styles.statusBar}
-                style={{
-                  width: Math.min(stat.base_stat / 1.1,100)+"%",
-                }}
-              >
-              <p className={styles.statusName}>{stat.stat.name}</p>
-              </div>
-            </div>
-          ))}
-        </div>
+        <Status pokemonsDetail = {props.pokemonsDetail} statusCheck = {statusCheck}></Status>
+        <Abilities pokemonsDetail = {props.pokemonsDetail} abilitiesCheck = {abilitiesCheck}></Abilities>
+        <Types pokemonsDetail = {props.pokemonsDetail} typesCheck = {typesCheck}></Types>
       </div>
     </>
   );
