@@ -43,14 +43,90 @@
       top: 10px;
       max-width: 200px;
     }
+
+    .search {
+      opacity: 0;
+      height: 40px;
+      width: 40px;
+      border-radius: 50%;
+      background-color: lightblue;
+      animation: fadeIn 1s linear 5s;
+      animation-fill-mode: forwards;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      margin-left: auto;
+
+      .icon {
+        opacity: 0;
+        height: 20px;
+        width: 20px;
+        animation: fadeIn 1s linear 5.2s;
+        animation-fill-mode: forwards;
+      }
+    }
+
+    .filter {
+      opacity: 0;
+      height: 40px;
+      width: 40px;
+      border-radius: 50%;
+      background-color: lightgreen;
+      animation: fadeIn 1s linear 5.2s;
+      animation-fill-mode: forwards;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .icon {
+        opacity: 0;
+        height: 20px;
+        width: 20px;
+        animation: fadeIn 1s linear 5.2s;
+        animation-fill-mode: forwards;
+      }
+    }
+    .games {
+      opacity: 0;
+      height: 40px;
+      width: 40px;
+      border-radius: 50%;
+      background-color: darkgoldenrod;
+      animation: fadeIn 1s linear 5.3s;
+      animation-fill-mode: forwards;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .icon {
+        opacity: 0;
+        height: 20px;
+        width: 20px;
+        animation: fadeIn 1s linear 5.2s;
+        animation-fill-mode: forwards;
+      }
+    }
   }
 }
 
 @keyframes loadingCard {
-    from {
-      width: 40%;
-    }
-    to {
-      width: 100%;
-    }
+  from {
+    width: 40%;
   }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

@@ -5,6 +5,7 @@ import styles from "../styles/Home.module.scss";
 import Header from "./header.js";
 import Footer from "./footer.js";
 import PokemonCard from "./pokemonCard.js";
+
 const ArrowRight = "/imgs/ArrowRight.png";
 const ArrowLeft = "/imgs/ArrowLeft.png";
 
@@ -14,6 +15,7 @@ export default function Home(props) {
   const [loadInformationCheck, setLoadInformationCheck] = useState([false]);
   const [nextPageInformation, setnextPageInformation] = useState([]);
   const [previousPageInformation, setpreviousPageInformation] = useState([]);
+  const [changingPageCheck, setChangingPageCheck] = useState([]);
 
   useEffect(() => {
     setTimeout(function () {
@@ -21,7 +23,9 @@ export default function Home(props) {
     }, 4500);
     setTimeout(function () {
       setPokemonsDetails(props.pokemonsDetails);
+      setpreviousPageInformation(props.data.previous);
       setnextPageInformation(props.data.next);
+      setChangingPageCheck(false);
       setLoadInformationCheck(true);
     }, 9500);
   }, []);
@@ -39,6 +43,7 @@ export default function Home(props) {
     setnextPageInformation(data.next);
     setpreviousPageInformation(data.previous);
     setPokemonsDetails(pokemonsDetails);
+    setChangingPageCheck(false);
   }
 
   return (
@@ -54,6 +59,7 @@ export default function Home(props) {
                 index={index}
                 loading={loading}
                 pokemonsDetail={pokemonsDetail}
+                changingPageCheck={changingPageCheck}
               ></PokemonCard>
             ))
           ) : (
@@ -80,18 +86,24 @@ export default function Home(props) {
             </div>
           )}
           <div className={loading ? styles.pagination : styles.paginationOpen}>
+          {previousPageInformation ? (
             <img
               onClick={() => {
+                setChangingPageCheck(true);
                 fetchData(previousPageInformation);
               }}
               src={ArrowLeft}
             ></img>
+            ):(<div></div>)}
+            {nextPageInformation ? (
             <img
               onClick={() => {
+                setChangingPageCheck(true);
                 fetchData(nextPageInformation);
               }}
               src={ArrowRight}
             ></img>
+            ):(<div></div>)}
           </div>
         </div>
       </main>

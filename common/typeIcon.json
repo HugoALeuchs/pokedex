@@ -1,0 +1,22 @@
+{
+    "normal": "/types/normal.svg",
+    "fighting": "/types/fighting.svg",
+    "fire": "/types/fire.svg",
+    "grass": "/types/grass.svg",
+    "water": "/types/water.svg",
+    "flying": "/types/flying.svg",
+    "poison": "/types/poison.svg",
+    "ground": "/types/ground.svg",
+    "rock": "/types/rock.svg",
+    "bug": "/types/bug.svg",
+    "ghost": "/types/ghost.svg",
+    "steel": "/types/steel.svg",
+    "electric": "/types/electric.svg",
+    "psychic": "/types/psychic.svg",
+    "ice": "/types/ice.svg",
+    "dragon": "/types/dragon.svg",
+    "dark": "/types/dark.svg",
+    "fairy": "/types/fairy.svg",
+    "unknown": "/types/unknown.svg",
+    "shadow": "/types/shadow.svg"
+}

@@ -1,0 +1,75 @@
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  .loadingText {
+    position: absolute;
+    top: 53%;
+
+    font-size: 2em;
+    font-weight: bolder;
+
+    color: rgba(53, 171, 163, 1);
+  }
+
+  .bigArc {
+    width: 200px;
+    height: 100px;
+    background-color: transparent;
+    border-top-left-radius: 110px;
+    border-top-right-radius: 110px;
+    border: 10px solid black;
+
+    background-color: red;
+
+    animation: rotateBig 2s linear infinite;
+  }
+  .smallArc {
+    width: 200px;
+    height: 100px;
+    background-color: transparent;
+    border-bottom-left-radius: 110px;
+    border-bottom-right-radius: 110px;
+    border: 10px solid black;
+
+    background-color: white;
+
+    animation: rotateSmall 2s linear infinite;
+  }
+  .smallBall {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+
+    border: 10px solid black;
+
+    background-color: white;
+
+
+    position: absolute;
+  }
+}
+
+@keyframes rotateBig {
+  from {
+    transform: rotate(0deg);
+    transform-origin: bottom center;
+  }
+  to {
+    transform-origin: bottom center;
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotateSmall {
+  from {
+    transform: rotate(0deg);
+    transform-origin: top center;
+  }
+  to {
+    transform-origin: top center;
+    transform: rotate(360deg);
+  }
+}
