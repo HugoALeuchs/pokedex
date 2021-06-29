@@ -38,7 +38,11 @@
     animation: loadingCard 5s;
     border-radius: 40px 40px 0px 0px;
 
-    img {
+    div:nth-child(n) {
+      margin-right: 20px;
+    }
+
+    .navbarPokeBall {
       position: absolute;
       top: 10px;
       max-width: 200px;
@@ -59,12 +63,46 @@
 
       margin-left: auto;
 
+      transition: all 0.5s;
+
       .icon {
         opacity: 0;
         height: 20px;
         width: 20px;
         animation: fadeIn 1s linear 5.2s;
         animation-fill-mode: forwards;
+      }
+
+      .searchText {
+        display: none;
+        opacity: 0;
+      }
+    }
+
+    .search:hover {
+      width: 160px;
+      border-radius: 20px;
+      justify-content: flex-start;
+      padding-left: 15px;
+
+      transition: width 2s;
+
+      .icon {
+        margin-right: 5px;
+      }
+
+      .searchText {
+        display: flex;
+        opacity: 1;
+
+        width: 100px;
+        height: 35px;
+        border-radius: 20px;
+
+        background-color: transparent;
+        border: none;
+
+        outline: none;
       }
     }
 
@@ -81,6 +119,8 @@
       justify-content: center;
       align-items: center;
 
+      transition: all 0.5s;
+
       .icon {
         opacity: 0;
         height: 20px;
@@ -88,7 +128,62 @@
         animation: fadeIn 1s linear 5.2s;
         animation-fill-mode: forwards;
       }
+
+      .filtersName {
+        display: none;
+        opacity: 0;
+
+        height: 0px;
+      }
     }
+
+    .filter:hover {
+      width: 160px;
+      border-radius: 20px;
+      justify-content: flex-start;
+      padding-left: 15px;
+
+      transition: width 2s;
+
+      ::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+        background-color: lightgreen;
+        border-radius: 0px 20px 20px 0px;
+      }
+
+      ::-webkit-scrollbar {
+        width: 15px;
+        background-color: transparent;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+        background-color: gray;
+        border-radius: 0px 20px 20px 0px;
+      }
+
+      .filtersName {
+        border-radius: 20px;
+        background-color: lightgreen;
+
+        animation: filterBox 1s linear 2s;
+        animation-fill-mode: forwards;
+
+        margin: 0px;
+
+        align-self: flex-start;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        opacity: 1;
+
+        overflow-y: scroll;
+        overflow-x: hidden;
+      }
+    }
+
     .games {
       opacity: 0;
       height: 40px;
@@ -102,6 +197,8 @@
       justify-content: center;
       align-items: center;
 
+      transition: all 0.5s;
+
       .icon {
         opacity: 0;
         height: 20px;
@@ -109,6 +206,15 @@
         animation: fadeIn 1s linear 5.2s;
         animation-fill-mode: forwards;
       }
+    }
+
+    .games:hover {
+      width: 160px;
+      border-radius: 20px;
+      justify-content: flex-start;
+      padding-left: 15px;
+
+      transition: width 2s;
     }
   }
 }
@@ -128,5 +234,25 @@
   }
   to {
     opacity: 1;
+  }
+}
+
+@keyframes searchBar {
+  from {
+    width: 40px;
+  }
+  to {
+    width: 160px;
+  }
+}
+
+@keyframes filterBox {
+  from {
+    height: 40px;
+    width: 100%;
+  }
+  to {
+    height: 200px;
+    width: 100%;
   }
 }
