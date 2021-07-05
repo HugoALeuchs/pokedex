@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../styles/Header.module.scss";
+import styles from "../../styles/Header.module.scss";
 
 const PokeballNav = "/imgs/PokeballNav.png";
 const Loupe = "/imgs/loupe.svg";

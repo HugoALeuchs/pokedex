@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.scss";
-import Header from "./header.js";
-import Footer from "./footer.js";
-import PokemonCard from "./pokemonCard.js";
+import Header from "./components/header.js";
+import Footer from "./components/footer.js";
+import PokemonCard from "./components/pokemonCard.js";
 
 const ArrowRight = "/imgs/ArrowRight.png";
 const ArrowLeft = "/imgs/ArrowLeft.png";
